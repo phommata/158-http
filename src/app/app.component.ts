@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   ngOnInit(){
     this.httpService.getData()
       .subscribe(
-        (data: Response) => console.log(data)
+        (data: Response) => console.log(data.json())
       );
   }
 }
