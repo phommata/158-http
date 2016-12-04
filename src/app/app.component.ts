@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { HttpService } from "./http.service";
-import { Response } from "@angular/http";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   items: any[] = [];
   asyncString = this.httpService.getData();
 
@@ -14,15 +13,12 @@ export class AppComponent implements OnInit {
 
   }
 
-  ngOnInit(){
-    this.httpService.getData()
-      .subscribe(
-        (data: any) => console.log(data)
-      );
-  }
-
   onSubmit(username: string, email: string){
-    this.httpService.sendData({username: username, email: email}).subscribe(data => console.log(data));
+    this.httpService.sendData({username: username, email: email})
+      .subscribe(
+        data => console.log(data),
+        error => console.log(error)
+      );
   }
 
   onGetData(){
