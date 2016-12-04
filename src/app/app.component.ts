@@ -29,7 +29,7 @@ export class AppComponent implements OnInit {
       .subscribe(data => {
         const myArray = [];
         for (let key in data){
-          myArray.push(key);
+          myArray.push(data[key]);
         }
         this.items = myArray;
       });
