@@ -19,4 +19,9 @@ export class HttpService {
     return this.http.post('https://angular2-course-61bbe.firebaseio.com/data.json', body, { headers: headers})
       .map((data: Response) => data.json());
   }
+
+  getOwnData(){
+    return this.http.get('https://angular2-course-61bbe.firebaseio.com/data.json')
+      .map((response: Response) => response.json());
+  }
 }
